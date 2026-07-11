@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent 記憶翻牌</title>
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-layout">
+    <aside class="left-panel">
+      <div class="rules-box">
+        <h3>📖 遊戲規則</h3>
+        <p>翻開兩張卡牌，找出配對的 AI 名詞。</p>
+        <p>配對成功 → 卡片保留；配對失敗 → 卡片蓋回。</p>
+        <p>以最少的步數和最短的時間配對全部 10 組，分數越高越好！</p>
+      </div>
+    </aside>
+
+    <main class="game-center">
+      <header>
+        <h1>🧠 AI Agent 記憶翻牌</h1>
+        <div class="stats">
+          <span>配對：<strong id="matches">0</strong>/10</span>
+          <span>步數：<strong id="moves">0</strong></span>
+          <span>時間：<strong id="timer">0:00</strong></span>
+        </div>
+      </header>
+
+      <div class="grid" id="grid"></div>
+
+      <div class="btn-group">
+        <button class="action-btn reveal" onclick="revealAll()">👁 看解答</button>
+        <button class="action-btn hide" onclick="hideAll()">🎴 蓋牌</button>
+        <button class="shuffle-btn" onclick="reshuffle()">🔀 重新洗牌</button>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <div class="main-leaderboard">
+        <h3>🏆 排行榜</h3>
+        <div class="lb-header">
+          <span>排名</span><span>玩家</span><span>分數</span><span>時間</span>
+        </div>
+        <ol id="mainRankList"></ol>
+        <button class="clear-btn" onclick="clearBoard()">🗑 清除排行榜資料</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h2>🎉 恭喜過關！</h2>
+      <p>你用了 <strong id="finalMoves">0</strong> 步</p>
+      <p>花費時間 <strong id="finalTime">0:00</strong></p>
+      <div class="name-input">
+        <input type="text" id="playerName" placeholder="輸入你的名字" maxlength="12">
+        <button onclick="submitScore()">儲存分數</button>
+      </div>
+      <div class="leaderboard">
+        <h3>🏆 排行榜</h3>
+        <ol id="modalRankList"></ol>
+      </div>
+      <button class="shuffle-btn" onclick="closeModal(); initGame();">再玩一次</button>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../shared/js/firebase.js"></script>
+  <script src="../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
