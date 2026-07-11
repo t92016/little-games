@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Games</title>
+  <link rel="stylesheet" href="shared/css/global.css">
+  <style>
+    .lobby {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .lobby h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #8b5cf6, #3b82f6, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lobby p {
+      color: #94a3b8;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+    .game-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .game-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #1a1a2e;
+      border: 1px solid #4f46e5;
+      border-radius: 14px;
+      padding: 20px 24px;
+      text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .game-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(79, 70, 229, 0.3);
+    }
+    .game-icon {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+    .game-info h3 {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+    .game-info span {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .badge {
+      margin-left: 10px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .badge-done { background: #22c55e; color: #0f0f1a; }
+    .badge-soon { background: #4f46e5; color: #fff; }
+    .footer {
+      margin-top: 50px;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+  <div class="lobby">
+    <h1>Little Games</h1>
+    <p>挑一個小遊戲來玩吧</p>
+    <div class="game-list">
+      <a class="game-card" href="memory-match/">
+        <div class="game-icon">🧠</div>
+        <div class="game-info">
+          <h3>AI Agent 記憶翻牌 <span class="badge badge-done">已上線</span></h3>
+          <span>配對 AI 名詞卡片，考驗你的記憶力</span>
+        </div>
+      </a>
+      <div class="game-card" style="opacity: 0.5; cursor: default;">
+        <div class="game-icon">🔜</div>
+        <div class="game-info">
+          <h3>更多遊戲開發中 <span class="badge badge-soon">敬請期待</span></h3>
+          <span>下一個小遊戲即將到來</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="https://github.com/t92016/little-games" target="_blank">GitHub</a>
+    </div>
+  </div>
+</body>
+</html>
